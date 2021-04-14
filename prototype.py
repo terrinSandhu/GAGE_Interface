@@ -1,23 +1,18 @@
 import csv
+import numpy as np
 
-f = open('test.csv', 'w')
+#numpy method
+file = open("test.csv")
+numpy_array = np.loadtxt(file, delimiter=",")
 
-i =  input()
-a =[]
-for a in range(int(i)):
-    b =  input()    
-    a.append(i)
+print(numpy_array)
 
-with f:
-    writer = csv.writer(f) 
-    for row in a:
-        writer.writerow(row)
-f.close()
-f = open('test.csv', 'r')
-with f:
 
-    reader = csv.reader(f)
 
-    for row in reader:
-        for e in row:
-            print(e)
+#csv brute force method
+datafile = open('test.csv', 'r')
+datareader = csv.reader(datafile, delimiter=';')
+data = []
+for row in datareader:
+    data.append(row)    
+print (data[1:4])
