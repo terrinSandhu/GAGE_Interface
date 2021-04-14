@@ -16,7 +16,7 @@ for i in range(0,x):
     search_string = data1[0][i]
     print(search_string)
 
-    data2[0][i-1] = search_string
+    data2[0][i] = search_string
 
     print(key_dict[search_string])
     mini_dict = key_dict[search_string]
