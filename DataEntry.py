@@ -6,7 +6,7 @@ x = 1
 dataKey = {"cat1":["sub1", "sub2", "sub3"] , 
         "cat2" : ["sub4", "sub5", "sub6"] , 
         "cat3": ["sub7", 
-            {"sub6": ["a", "b","c"]}]
+            {"sub8": ["a", "b","c"]}]
 }
 
 #class to store data for csv input
@@ -26,7 +26,7 @@ class Variable:
 #driver loop for comand line interface (later tio be connected to GUI)
 while(x ==1):
 
-    print("enter var name")
+    print("enter var name")   # take variable name from csv file from column && include description
     a1 = input()
     print(dataKey.keys())
 
@@ -43,14 +43,19 @@ while(x ==1):
     else:
         c = 0
 
-    print("Was instrumentation used, if so specify which kind was utilized, else eenter 0")
+
+#ssee documentation for  lists of instrumentation
+    print("Was instrumentation used, if so specify which kind was utilized, else enter 0") # connnect list based on categories (python psuedo switch statement)
     d = input()
 
-    print("What kind of data does this variable contain? (Categorical/Boolean/String/Int)")
+# item level vs toatal score || both
+# reverse scored scales --- include scoring ?
+    print("What kind of data does this variable contain? (Continous / Categorical)")
     e = input()
 
-    print("Enter the data contained by this variable:")
-    f = input()
+    print("Enter the data contained by this variable:") # modify to make clearer only appliccable tp categorical && connect
+    f = input() 
+                    # loop thru num of categories && includes defaults that have common occurences
 
     
     newVar = Variable(a1,a,b,c,d,e,f)
@@ -61,7 +66,4 @@ while(x ==1):
 
 # enter elenments int csv file
 
-for item in varContainer:
-    items = item.returnVals()
-    for i in items:
-        print(i)
+print(varContainer)
