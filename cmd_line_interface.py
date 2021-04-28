@@ -32,7 +32,7 @@ class Variable:
 
 with open(filename, 'r') as csvfile:
     datareader = csv.reader(csvfile)
-    while x ==1:
+    while x == 1:
         for row in datareader:
             # NAME
             name = row[0]
@@ -102,22 +102,14 @@ with open(filename, 'r') as csvfile:
             print("would you like to add any specifics about the data stored ?")
             varData = input()
 
+            #ENTER DATA
+            varObject =  Variable(name, description, category, sub1, sub2, instrument, varType, varData)
+            varContainer = varObject.returnVals()
+            data.append(varContainer)
+"""EXIT CONDITION STILL REQUIRES EDITING"""
+            #EXIT CONDITION
             print("enter 1 to continue, 0 to save and quit")
-
-
-        varObject =  Variable(name, description, category, sub1, sub2, instrument, varType, varData)
-        varContainer = varObject.returnVals()
-        data.append(varContainer)
-
-
-
-
-
-
-
-
-
-
+            x = input()
 
 
 # data to be written row-wise in csv file
