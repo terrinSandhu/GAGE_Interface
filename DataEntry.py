@@ -1,7 +1,7 @@
 #container for csv transfer 
 # declare paired variable file /description(description conditional on existance --)
 #establish specification standard -- (2 collumn csv file [[name][label/description]])
-
+import csv
 
 """ 
 if description balnk:
@@ -25,8 +25,9 @@ dataKey = {"cat1":["sub1", "sub2", "sub3"] ,
 
 #class to store data for csv input
 class Variable:
-        def __init__(self, VarName, Category, SubCategory, SubCategory2, Instrumentation, VarDataType, VarData):
+        def __init__(self, VarName, VarDescription, Category, SubCategory, SubCategory2, Instrumentation, VarDataType, VarData):
             self.Varname = VarName
+            self.VarDescription = VarDescription
             self.Category = Category
             self.SubCategory = SubCategory
             self.SubCategory2 = SubCategory2
