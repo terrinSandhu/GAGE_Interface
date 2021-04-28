@@ -1,8 +1,22 @@
-#container for csv transfer
+#container for csv transfer 
+# declare paired variable file /description(description conditional on existance --)
+#establish specification standard -- (2 collumn csv file [[name][label/description]])
+
+
+""" 
+if description balnk:
+    add one
+else: print(description)
+    function.edit()?
+
+"""
+
 varContainer = []
 #loop condition
 x = 1
 # multidimensional dict to contain value, categories & subcategories
+# hardcode vs. csv O(n) -- run data sim // time efficency
+
 dataKey = {"cat1":["sub1", "sub2", "sub3"] , 
         "cat2" : ["sub4", "sub5", "sub6"] , 
         "cat3": ["sub7", 
@@ -28,7 +42,10 @@ while(x ==1):
 
     print("enter var name")   # take variable name from csv file from column && include description
     a1 = input()
-    print(dataKey.keys())
+    print(dataKey.keys()) # add option for other 
+
+    # if other : enter new cat && sub cat && sub2
+    # add misc category for extreem DNE
 
     a = input()
     print(dataKey[a])
@@ -48,8 +65,12 @@ while(x ==1):
     print("Was instrumentation used, if so specify which kind was utilized, else enter 0") # connnect list based on categories (python psuedo switch statement)
     d = input()
 
-# item level vs toatal score || both
-# reverse scored scales --- include scoring ?
+# item level vs toatal score || both || item level(if: whichc) // summary level variable(spec ?)
+# ^^ add defaults to whichever entry was last^^
+# see MEQ 4 example on default cases -- iteration over same form
+# y/n? --- reverse scored scales --- include scoring scales ?
+
+
     print("What kind of data does this variable contain? (Continous / Categorical)")
     e = input()
 
@@ -61,9 +82,25 @@ while(x ==1):
     newVar = Variable(a1,a,b,c,d,e,f)
     varContainer.append(newVar)
 
-    print("press 0 to exit and enter variables, 1 to continue, and 2 to enter")
+    print("press 0 to resyart, 1 to continue, and 2 to enter")
     x = input()
 
 # enter elenments int csv file
+# add reminder for usercase 4 accidental close out
+# autosace feature
+#continue feature for csv files
+
+#select local files -- new// continiue 
+
+# search alg for insertion into csv for organized file  
+# last entered vatriable on csv -- on loop mechanics
+
+"""
+PRINT BY VARIABLE -- formatting will be handles by query 
+no need for filter // search ?? 
+
+if category DNE: add option ot enter new variables
+"""
+
 
 print(varContainer)
