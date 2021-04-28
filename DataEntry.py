@@ -1,4 +1,4 @@
-import csv
+"""import csv
 
 filename = 'test_driver.csv'
 
@@ -7,7 +7,7 @@ with open(filename, 'r') as csvfile:
     for row in datareader:
         if  len(row[1]) == 1:
             print(row[0])
-
+"""
 
 varContainer = []
 #loop condition
@@ -33,7 +33,7 @@ class Variable:
             self.VarDataType = VarDataType
             self.VarData = VarData
         def returnVals(self):
-            data = [  self.Varname,self.Category,self.SubCategory ,self.SubCategory2 ,self.Instrumentation,self.VarDataType, self.VarData ]
+            data = [  self.Varname,self.VarDescription,self.Category,self.SubCategory ,self.SubCategory2 ,self.Instrumentation,self.VarDataType, self.VarData ]
             return data
 
 #driver loop for comand line interface (later tio be connected to GUI)
@@ -81,7 +81,7 @@ while(x ==1):
     newVar = Variable(a1,a,b,c,d,e,f)
     varContainer.append(newVar)
 
-    print("press 0 to resyart, 1 to continue, and 2 to enter")
+    print("press 1 to continue, and 2 to enter")
     x = input()
 
 # enter elenments int csv file
