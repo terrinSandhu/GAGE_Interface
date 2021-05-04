@@ -14,7 +14,6 @@ varFormat = ["VarName", "VarDescription", "Category", "SubCategory", "SubCategor
 
 #email them to verify dict list && kaylee to then list && joy
 
-data.append(varFormat)
 
 dataKey = {"cat1":["sub1", "sub2", "sub3"] , 
         "cat2" : ["sub4", "sub5", "sub6"] , 
