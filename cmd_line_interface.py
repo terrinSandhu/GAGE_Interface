@@ -8,12 +8,28 @@ x = 1
 instrumentList = [1,2,3,4,5]
 varFormat = ["VarName", "VarDescription", "Category", "SubCategory", "SubCategory2", "Instrumentation", "VarDataType", "VarData"]
 #add options for dataType (continous/categorical) && enter categories for cvategorical || o=1, 1=yes || iterate through x values in range(x)
-#add hotkeys
+
+
+def printHotkeys(arrayList): # add hotley arrays to each
+    n = 0
+    hotkeyDict = {}
+    for i in arrayList:
+        hotkeyDict[n] = i
+        n+=1
+    print(hotkeyDict)
+
+def returnHotkeys( num, arrayList):
+    return arrayList[num]
 #csv dict to preserve new cat && generate "other" umbrella for faster observation
 
 
 #email them to verify dict list && kaylee to then list && joy
-
+#check test file for the following(resume feature):
+    #is title already entered ?
+    #if no
+data.append(varFormat)
+    #if yes: ger last entered varName
+    #resume iteration over driver @last entered varName
 
 dataKey = {"cat1":["sub1", "sub2", "sub3"] , 
         "cat2" : ["sub4", "sub5", "sub6"] , 
@@ -39,7 +55,10 @@ class Variable:
 #while loop && save func()
 with open(filename, 'r') as csvfile:
     datareader = csv.reader(csvfile)
+
+
     for row in datareader:
+
         # NAME
         name = row[0]
         description = row[1]
@@ -117,9 +136,6 @@ with open(filename, 'r') as csvfile:
         print("save & quit ? y/n")
         breakVar = input()
         if breakVar == "y": break
-
-
-# data to be written row-wise in csv file
 
   
 # opening the csv file in 'a+' mode
