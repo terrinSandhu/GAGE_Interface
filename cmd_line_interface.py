@@ -7,9 +7,13 @@ varContainer = []
 x = 1
 instrumentList = [1,2,3,4,5]
 varFormat = ["VarName", "VarDescription", "Category", "SubCategory", "SubCategory2", "Instrumentation", "VarDataType", "VarData"]
-#add options for dataType (continous/categorical) && enter categories for cvategorical || o=1, 1=yes || iterate through x values in range(x)
-
-
+#add options for dataType (continous/categorical) && enter categories for cvategorical || o=1, 1=yes || iterate through x values in range(x) for continusous(theoretical range)
+# if above is continous: asks units
+#if instrumentation used : dont ask units for continus question bc its just a score
+#iff instrument: ask if total score(summary score) or item score
+#add section to link a dependable variable: print variable&description before and after in test driver csv file -- default == no
+#add genereal notes for end
+"""" add csv to contain instrument lists and so on defaults""""
 def printHotkeys(arrayList): # add hotley arrays to each
     n = 0
     hotkeyDict = {}
@@ -20,21 +24,50 @@ def printHotkeys(arrayList): # add hotley arrays to each
 
 def returnHotkeys( num, arrayList):
     return arrayList[num]
-#csv dict to preserve new cat && generate "other" umbrella for faster observation
 
 
+Empty = object()
+
+class BooleanIterator(object):
+
+    def __init__(self, iterator):
+        self._iter = iter(iterator)
+        self._get_next_value()
+    def __next__(self):
+        value = self._next_value
+        self._get_next_value()
+        if value is not Empty:
+            return value
+        raise StopIteration
+    next = __next__                    
+    def __bool__(self):
+        return self._next_value is not Empty
+    __nonzero__ = __bool__              
+    def _get_next_value(self):
+        self._next_value = next(self._iter, Empty)
 #email them to verify dict list && kaylee to then list && joy
 #check test file for the following(resume feature):
     #is title already entered ?
     #if no
-data.append(varFormat)
-    #if yes: ger last entered varName
-    #resume iteration over driver @last entered varName
+csvfile = open('test.csv', 'r')
 
-dataKey = {"cat1":["sub1", "sub2", "sub3"] , 
+reader = BooleanIterator(csv.DictReader(csvfile)
+
+for idx, row in enumerate(reader, start=1):
+    if not reader:
+        print("This was the last element entered: ", reader)
+        data.append(varFormat)
+            #if yes: ger last entered varName
+            #resume iteration over driver @last entered varName
+
+#csv dict to preserve new cat && generate "other" umbrella for faster observation
+"""import csv_driver.py"""
+
+#dataKey  = data_key_dict
+"""dataKey = {"cat1":["sub1", "sub2", "sub3"] , 
         "cat2" : ["sub4", "sub5", "sub6"] , 
         "cat3": ["sub7", 
-            {"sub8": ["a", "b","c"]}]
+            {"sub8": ["a", "b","c"]}]"""
 }
 
 
