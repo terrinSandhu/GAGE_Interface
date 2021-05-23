@@ -64,12 +64,13 @@ for idx, row in enumerate(reader, start=1):
 """import csv_driver.py"""
 
 #dataKey  = data_key_dict
-"""dataKey = {"cat1":["sub1", "sub2", "sub3"] , 
+"""
+dataKey = {"cat1":["sub1", "sub2", "sub3"] , 
         "cat2" : ["sub4", "sub5", "sub6"] , 
         "cat3": ["sub7", 
-            {"sub8": ["a", "b","c"]}]"""
+            {"sub8": ["a", "b","c"]}]
 }
-
+"""
 
 class Variable:
         def __init__(self, VarName, VarDescription, Category, SubCategory, SubCategory2, Instrumentation, VarDataType, VarData):
