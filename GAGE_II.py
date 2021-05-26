@@ -54,6 +54,7 @@ def findSubCategories(dictionary, nxtDict, category):
     for j in nxtDict:
         if nxtDict[j] > val1 and nxtDict[j] < val2: 
             arr2.append(j)
+    return arr2
 
 def printHotkeys(arrayList): # add hotley arrays to each
     n = 0
@@ -64,13 +65,18 @@ def printHotkeys(arrayList): # add hotley arrays to each
     print(hotkeyDict)
 
 def returnHotkeys(num, arrayList):
-    n = 0
+    n = 1
     hotkeyDict = {}
     for i in arrayList:
         hotkeyDict[n] = i
         n+=1
-    v = list(arrayList.keys())
-    return v[num]
+    if type(arrayList) is dict:
+        v = arrayList.keys()
+        v = list(v)
+        return v[num]
+    else:
+        return hotkeyDict
+
 #Execute methods on csv
 df_categories = filterCells(fill_dictionary(filename,1 ))
 df_subCategories = filterCells(fill_dictionary(filename,2 ))
@@ -79,16 +85,14 @@ df_instruments = filterCells(fill_dictionary(filename,5 ))
 
 #print(findSubCategories(df_categories,df_subCategories, 'Lifetime Pharmacological Treatment'))
 
-printHotkeys(df_categories)
+
 
 
 #LOOP logic
 with open(filename2, 'r') as csvfile:
     datareader = csv.reader(csvfile)
 
-
     for row in datareader:
-
         # NAME
         name = row[0]
         description = row[1]
@@ -120,10 +124,11 @@ with open(filename2, 'r') as csvfile:
 
         
         subCat1 = findSubCategories(df_categories, df_subCategories, category)
-        print("n", subCat1)
+
         print("Select a subcategory, or enter a new one:")  
         printHotkeys(subCat1)
-        sub1 = returnHotkeys(input(), subCat1)
+        sub1 = input()
+        sub1 =str(returnHotkeys(int(sub1), subCat1))
 
         # SUBCATEGORY_2
         subCat2 = findSubCategories(df_subCategories, df_subSubCategories, sub1)
