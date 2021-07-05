@@ -200,15 +200,7 @@ with open(filename2, 'r') as csvfile:
             data.append(varContainer)
 
         #ADD SECOND SAVE OPTION (WITHOUT EXITING)
-        print("save progress ? [y / n]")
-        k = input()
-        if k == "y":
-                
-
-        # AUTOSAVE
-        #if saveCounter % 5:
-
-        
+        saveTo()
         #BREAK
         print("press (y) to save and exit, or (n) to continue:")
         breakVar = input()
