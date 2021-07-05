@@ -181,8 +181,9 @@ with open(filename2, 'r') as csvfile:
         if int(varData) == 0:
             print("enter item numner")
             g = input()
-            varData = varData + str(g)
+            varData = "item: " + str(g)
         elif int(varData) == 1:
+            varData = "summary"
             #select && return summary
 
 
@@ -202,7 +203,7 @@ with open(filename2, 'r') as csvfile:
         print("save progress ? [y / n]")
         k = input()
         if k == "y":
-
+                
 
         # AUTOSAVE
         #if saveCounter % 5:
