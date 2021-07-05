@@ -64,7 +64,7 @@ def printHotkeys(arrayList): # add hotley arrays to each
         n+=1
     print(hotkeyDict)
 
-def returnHotkeys(num, arrayList):
+def returnHotkeys(num, arrayList): #ADJUST FRO OTHER OPTION ATTHE END >> INCLUDE CUSTOM OPTION @ END AS REMINDER
     n = 1
     hotkeyDict = {}
     for i in arrayList:
@@ -74,9 +74,15 @@ def returnHotkeys(num, arrayList):
         v = arrayList.keys()
         v = list(v)
         return v[num]
-    else:
-        return hotkeyDict
+    else: return arrayList[num]
 
+def saveTo():
+        file = open('test.csv', 'a+', newline ='')
+
+        # writing the data into the file
+        with file:    
+            write = csv.writer(file)
+            write.writerows(data)
 #Execute methods on csv
 df_categories = filterCells(fill_dictionary(filename,1 ))
 df_subCategories = filterCells(fill_dictionary(filename,2 ))
@@ -129,52 +135,81 @@ with open(filename2, 'r') as csvfile:
         printHotkeys(subCat1)
         sub1 = input()
         sub1 =str(returnHotkeys(int(sub1), subCat1))
+        print(sub1)
+        
+        # SUBCATEGORY_2  >> NO SECOND SUB CATEGORY
 
-        # SUBCATEGORY_2
-        subCat2 = findSubCategories(df_subCategories, df_subSubCategories, sub1)
         print("would you like to add a second subcategory  [y/n] ?")
         i = input()
-        if(isinstance(sub1,dict)) :
+        if(i == "y") :
+            subCat2 = findSubCategories(df_subCategories, df_subSubCategories, sub1)
             print("select a second subcategory")
             printHotkeys(subCat2)
-            sub2 = returnHotkeys(input(), subCat2)
-        elif i =='y':
-            print("enter a second subcategory:")
             sub2 = input()
+            sub2 = str(returnHotkeys(int(sub2), subCat2))
         else:
             sub2 = 0
                         
-        # INSTRUMENTATION
-
+        # INSTRUMENTATION >> MAKE SURE ONLY RELEVANT INSTRUMENTATION SHOWN >> CATCH @ SUB FETCH METHOD
+        #EACH cell is an arr datatype, not corresponding to branchign >> write seperate method
         print("was instrumentaion used [y/n]")
         i = input()
         if i == 'y':
-            instrumentList = findSubCategories(category, df_instruments)
-            print("Select from the following list or enter your own:", instrumentList)
+            instrumentList = findSubCategories(df_categories, df_instruments, category)
+            print("Select from the following list or enter your own:")
+            printHotkeys(instrumentList)
             instrument = input()
-            print(" would you like to enter any information regarding the methodology of the data collection [y/n] ?")
-            i = input()
-            if i =='y': 
-                print("enter:")
+            instrument = str(instrument)
+            if instrument == "Other":
+                print(" would you like to enter any information regarding the methodology of the data collection [y/n] ?")
                 i = input()
-                instrument = instrument + ":" + i
+                if i =='y': 
+                    print("enter:")
+                    instrument = input()
+            else: instrument = str(returnHotkeys(int(instrument), instrumentList))
+
         else: instrument = 0
 
         # VARIABLE TYPE
-        print("what kind of data is stored in this varibale ?")
+        print("what kind of data is stored in this varibale ?") #CATEGORICAL / CONSTINTUOUS HOTKEYS >> 2 CHAIN IF/ELIF
+        #IF CATEGORICAL: HOW MANY CATEGORIS && LOOP THRU VALUE // DESCRIPTION FOReach loop
         varType = input()
 
         #VARIABLE DATA
-        print("would you like to add any specifics about the data stored ?")
+        print("is this an item or summary score ?[ 0: item / 1: summary]")
         varData = input()
+        if int(varData) == 0:
+            print("enter item numner")
+            g = input()
+            varData = varData + str(g)
+        elif int(varData) == 1:
+            #select && return summary
+
+
+
+        #IS THIS VARIABLE DEPendent
+
 
         #ENTER DATA
         varObject =  Variable(name, description, category, sub1, sub2, instrument, varType, varData)
         varContainer = varObject.returnVals()
-        data.append(varContainer)
+        print(" do you want to enter these values ?  [y/n] \n", varContainer) #BACK OPTION >> variable behind it
+        i = input()
+        if i == "y":
+            data.append(varContainer)
 
+        #ADD SECOND SAVE OPTION (WITHOUT EXITING)
+        print("save progress ? [y / n]")
+        k = input()
+        if k == "y":
+
+
+        # AUTOSAVE
+        #if saveCounter % 5:
+
+        
         #BREAK
-        print("save & quit ? y/n")
+        print("press (y) to save and exit, or (n) to continue:")
         breakVar = input()
         if breakVar == "y": break
 
