@@ -12,3 +12,8 @@ select the data dictionary you would like to run the program on by entering the 
 
 Enter the name of the study, ensure it is unique as this is also the .csv filename the program will be saved under
 Follow the prompts as given by the program, and now you can begin variable categorization!
+
+*NOTE about opanion files:*
+
+- the .xlsx file downloaded should be the data dictionary
+- the .csv file should be a two column data structure with variable name and variable description
