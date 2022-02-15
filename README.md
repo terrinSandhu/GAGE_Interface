@@ -1,5 +1,8 @@
 Running:
 
+
+After downloading and extraxting the zip file;
+
 Open a file explorer window and navigate to the folder on your desktop
 When inside what efolder with file explorer, press ‘ALT’ + ‘D’ -- this should highlight the address bar
 Type ‘powershell’ into the address bar and then press ‘ENTER’
