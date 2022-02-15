@@ -6,7 +6,7 @@ After downloading and extraxting the zip file;
 Open a file explorer window and navigate to the folder on your desktop
 When inside what efolder with file explorer, press ‘ALT’ + ‘D’ -- this should highlight the address bar
 Type ‘powershell’ into the address bar and then press ‘ENTER’
-In the terminal, type the command ‘python GAGE_VII.py’ then ‘ENTER’ to begin running  the file
+In the terminal, type the command ‘python GAGE_VIII.py’ then ‘ENTER’ to begin running  the file
 
 select the data dictionary you would like to run the program on by entering the number that appears next to the file
 
